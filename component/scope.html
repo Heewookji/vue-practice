@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Vue sample</title>
+    </head>
+    <body>
+        <div id="app1">
+            <button>app 1</button>
+            <global-component></global-component>
+            <local-component></local-component>
+        </div>
+        <div id="app2">
+            <button>app 2</button>
+            <global-component></global-component>
+            <local-component></local-component>
+        </div>
+        <script src="https://unpkg.com/vue@2.3.3"></script>
+        <script>
+            Vue.component('global-component', {
+                template: '<div>global-component!</div>'
+            });
+            let localComponent = {
+                template : '<div>local-component!</div>',
+            };
+            new Vue({
+                components: {
+                    'local-component': localComponent,
+                },
+                el: '#app1',
+            });
+            new Vue({
+                el: '#app2',
+            });
+        </script>
+    </body>
+</html>
